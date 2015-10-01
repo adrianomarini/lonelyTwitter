@@ -82,10 +82,10 @@ public class LonelyTwitterActivity extends Activity {
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
             //http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
-            Type arraylistType = new TypeToken<ArrayList<NormalTweet>>() {}.getType();
-            tweets = gson.fromJson(in, arraylistType);
+            Type arrayListType = new TypeToken<ArrayList<NormalTweet>>() {}.getType();
+            tweets = gson.fromJson(in, arrayListType);
 		} catch (FileNotFoundException e) {
-            tweets = new ArrayList<Tweet>();
+			tweets = new ArrayList<Tweet>();
 		}
 	}
 	
@@ -99,7 +99,7 @@ public class LonelyTwitterActivity extends Activity {
 			fos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-            tweets = new ArrayList<Tweet>();
+			tweets = new ArrayList<Tweet>();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
             throw new RuntimeException(e);
