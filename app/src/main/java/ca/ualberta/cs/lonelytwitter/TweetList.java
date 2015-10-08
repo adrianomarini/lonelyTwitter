@@ -1,5 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import android.database.AbstractWindowedCursor;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -8,14 +10,13 @@ import java.util.Iterator;
 /**
  * Created by marini on 9/30/15.
  */
-public class TweetList {
+public class TweetList implements MyObservable {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+    private ArrayList<MyObserver> myObservers = new ArrayList<MyObserver>();
 
     public void add(Tweet tweet) throws IllegalArgumentException{
         tweets.add(tweet);
-        if(tweets.contains(tweet)){
-            throw new IllegalArgumentException();
-        }
+        notifyObservers();
     }
 
     public void removeTweet(Tweet tweet){
@@ -60,4 +61,13 @@ public class TweetList {
     }
 
 
+    public void addObserver(MyObserver o) {
+        myObservers.add(o);
+    }
+
+    public void notifyObservers() {
+        for(MyObserver observer : myObservers){
+            observer.myNotify();
+        }
+    }
 }
