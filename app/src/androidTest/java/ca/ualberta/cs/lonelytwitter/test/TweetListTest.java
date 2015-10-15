@@ -79,16 +79,17 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 implements M
         assertTrue((tweet.getDate().equals(returnedTweet.getDate())) && tweet.getText().equals(returnedTweet.getText()));
     }
 
-    public void testGetTweets(){
-        TweetList tweetList = new TweetList();
-        Tweet tweet = new NormalTweet("HIHIHIHIHI");
-        tweetList.add(tweet);
-        Tweet tweet2 = new NormalTweet("BYEBYEBYE");
-        tweetList.add(tweet2);
-        ArrayList<Tweet> orderedTweets = new ArrayList<Tweet>();
-        orderedTweets = tweetList.getTweets();
-        assertTrue(orderedTweets.get(0).getDate().before(orderedTweets.get(1).getDate()));
-    }
+    //public void testGetTweets(){
+       // TweetList tweetList = new TweetList();
+       // ArrayList<Tweet> orderedTweets = new ArrayList<Tweet>();
+       // Tweet tweet = new NormalTweet("HIHIHIHIHI");
+       // tweetList.add(tweet);
+       // Tweet tweet2 = new NormalTweet("BYEBYEBYE");
+       // tweetList.add(tweet2);
+
+      //  orderedTweets = tweetList.getTweets();
+      //  assertTrue(orderedTweets.get(0).getDate().before(orderedTweets.get(1).getDate()));
+   // }
 
 
     public void testTweetListChanged(){
